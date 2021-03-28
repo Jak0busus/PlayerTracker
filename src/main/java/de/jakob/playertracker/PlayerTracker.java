@@ -28,10 +28,6 @@ public class PlayerTracker extends JavaPlugin {
 
     private final TickConfig tickConfig = new TickConfig(this);
 
-    private final BossBarUtil bossBarUtil = new BossBarUtil(this);
-
-    private final TrackUtil trackUtil = new TrackUtil(this);
-
     @Override
     public void onEnable() {
 
@@ -51,15 +47,15 @@ public class PlayerTracker extends JavaPlugin {
             public void run() {
 
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-                    if (isTracking.containsKey(onlinePlayer.getUniqueId())) {
+                    if (!isTracking.containsKey(onlinePlayer.getUniqueId())) {
+                   continue;
+                    }
                         if (isTracking.get(onlinePlayer.getUniqueId())) {
 
-                            plugin.getTrackUtil().doTrack(onlinePlayer);
+                            TrackUtil.doTrack(onlinePlayer, plugin);
 
                         }
                     }
-                }
-
             }
         }, 0, plugin.getTickConfig().updateTicks());
 
@@ -79,14 +75,6 @@ public class PlayerTracker extends JavaPlugin {
 
     public TickConfig getTickConfig() {
         return tickConfig;
-    }
-
-    public BossBarUtil getBossBarUtil() {
-        return bossBarUtil;
-    }
-
-    public TrackUtil getTrackUtil() {
-        return trackUtil;
     }
 
 }

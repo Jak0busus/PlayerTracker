@@ -1,6 +1,7 @@
 package de.jakob.playertracker.listener;
 
 import de.jakob.playertracker.PlayerTracker;
+import de.jakob.playertracker.util.BossBarUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,12 +16,12 @@ public class LeaveListener implements Listener {
     }
 
     @EventHandler
-    public void onLeave(PlayerQuitEvent leaveevent) {
+    public void onLeave(PlayerQuitEvent leaveEvent) {
 
-        Player player = leaveevent.getPlayer();
+        Player player = leaveEvent.getPlayer();
 
         if (plugin.getPlayerBar().containsKey(player.getUniqueId())) {
-            plugin.getBossBarUtil().deleteBossBar(player);
+            BossBarUtil.deleteBossBar(player, plugin);
         }
 
         plugin.getIsTracking().remove(player.getUniqueId());

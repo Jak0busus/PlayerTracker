@@ -1,6 +1,8 @@
 package de.jakob.playertracker.command;
 
 import de.jakob.playertracker.PlayerTracker;
+import de.jakob.playertracker.util.BossBarUtil;
+import de.jakob.playertracker.util.TrackUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,14 +33,14 @@ public class TrackCommand implements CommandExecutor {
                     if (plugin.getIsTracking().get(player.getUniqueId())) {
 
                         plugin.getIsTracking().put(player.getUniqueId(), false);
-                        plugin.getBossBarUtil().deleteBossBar(player);
+                        BossBarUtil.deleteBossBar(player, plugin);
                         player.sendMessage("§7[§5Track§7] §eYou have deactivated the tracker.");
 
                     } else if (!plugin.getIsTracking().get(player.getUniqueId())) {
 
                         plugin.getIsTracking().put(player.getUniqueId(), true);
-                        plugin.getBossBarUtil().createBossBar(player);
-                        plugin.getTrackUtil().doTrack(player);
+                        BossBarUtil.createBossBar(player, plugin);
+                        TrackUtil.doTrack(player, plugin);
                         player.sendMessage("§7[§5Track§7] §eYou have activated the tracker.");
 
                     }

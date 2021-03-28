@@ -8,13 +8,7 @@ import org.bukkit.entity.Player;
 
 public class BossBarUtil {
 
-    private final PlayerTracker plugin;
-
-    public BossBarUtil(PlayerTracker plugin) {
-        this.plugin = plugin;
-    }
-
-    public void sendBossBar(Player player, String tracking, Integer distance) {
+    public static void sendBossBar(Player player, String tracking, Integer distance, PlayerTracker plugin) {
 
         //player.sendMessage(tracking + " is " + distance + " blocks away from you.");
 
@@ -26,7 +20,7 @@ public class BossBarUtil {
                 + "§7]");
     }
 
-    public void createBossBar(Player player) {
+    public static void createBossBar(Player player, PlayerTracker plugin) {
 
         BossBar bar;
 
@@ -44,7 +38,7 @@ public class BossBarUtil {
         plugin.getPlayerBar().put(player.getUniqueId(), bar);
     }
 
-    public void deleteBossBar(Player player) {
+    public static void deleteBossBar(Player player, PlayerTracker plugin) {
 
         BossBar bar = plugin.getPlayerBar().get(player.getUniqueId());
 

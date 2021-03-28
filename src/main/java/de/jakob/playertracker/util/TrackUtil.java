@@ -6,13 +6,7 @@ import org.bukkit.entity.Player;
 
 public class TrackUtil {
 
-    private final PlayerTracker plugin;
-
-    public TrackUtil(PlayerTracker plugin) {
-        this.plugin = plugin;
-    }
-
-    public void doTrack(Player player) {
+    public static void doTrack(Player player, PlayerTracker plugin) {
 
         String tracking = "none";
         int distance = 0;
@@ -45,7 +39,7 @@ public class TrackUtil {
             tracking = "none";
         }
 
-        plugin.getBossBarUtil().sendBossBar(player, tracking, distance);
+        BossBarUtil.sendBossBar(player, tracking, distance, plugin);
 
     }
 
