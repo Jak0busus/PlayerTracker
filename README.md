@@ -64,7 +64,7 @@ In the configuration, you can change the colour of the bossbar and set the refre
 color: purple
 
 
-#update-time
+#update time
 #in ticks (1sec = 20ticks)
 ticks: 10
   ```
