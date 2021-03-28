@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class LeaveListener implements Listener {
 
-    private PlayerTracker plugin;
+    private final PlayerTracker plugin;
 
     public LeaveListener(PlayerTracker plugin) {
         this.plugin = plugin;

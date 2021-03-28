@@ -20,17 +20,17 @@ public class PlayerTracker extends JavaPlugin {
 
     private static PlayerTracker plugin;
 
-    private Map<UUID, Boolean> isTracking = new HashMap<UUID, Boolean>();
+    private final Map<UUID, Boolean> isTracking = new HashMap<UUID, Boolean>();
 
-    private Map<UUID, BossBar> playerBar = new HashMap<UUID, BossBar>();
+    private final Map<UUID, BossBar> playerBar = new HashMap<UUID, BossBar>();
 
-    private ColorConfig colorConfig = new ColorConfig(this);
+    private final ColorConfig colorConfig = new ColorConfig(this);
 
-    private TickConfig tickConfig = new TickConfig(this);
+    private final TickConfig tickConfig = new TickConfig(this);
 
-    private BossBarUtil bossBarUtil = new BossBarUtil(this);
+    private final BossBarUtil bossBarUtil = new BossBarUtil(this);
 
-    private TrackUtil trackUtil = new TrackUtil(this);
+    private final TrackUtil trackUtil = new TrackUtil(this);
 
     @Override
     public void onEnable() {

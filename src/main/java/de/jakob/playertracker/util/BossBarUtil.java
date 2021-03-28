@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class BossBarUtil {
 
-    private PlayerTracker plugin;
+    private final PlayerTracker plugin;
 
     public BossBarUtil(PlayerTracker plugin) {
         this.plugin = plugin;

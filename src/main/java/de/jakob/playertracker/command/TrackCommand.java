@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class TrackCommand implements CommandExecutor {
 
-    private PlayerTracker plugin;
+    private final PlayerTracker plugin;
 
     public TrackCommand(PlayerTracker plugin) {
         this.plugin = plugin;

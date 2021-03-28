@@ -4,7 +4,7 @@ import de.jakob.playertracker.PlayerTracker;
 
 public class TickConfig {
 
-    private PlayerTracker plugin;
+    private final PlayerTracker plugin;
 
     public TickConfig(PlayerTracker plugin) {
         this.plugin = plugin;

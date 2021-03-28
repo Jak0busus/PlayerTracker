@@ -6,12 +6,12 @@ import org.bukkit.entity.Player;
 
 public class TrackUtil {
 
-    private PlayerTracker plugin;
+    private final PlayerTracker plugin;
 
     public TrackUtil(PlayerTracker plugin) {
         this.plugin = plugin;
     }
-    
+
     public void doTrack(Player player) {
 
         String tracking = "none";
@@ -21,22 +21,23 @@ public class TrackUtil {
 
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 
-            if (!onlinePlayer.equals(player)) {
-
-                if (onlinePlayer.getWorld().equals(player.getWorld())) {
-
-                    int newDistance = (int) onlinePlayer.getLocation().distance(player.getLocation());
-
-                    if (newDistance < distance || tracking.equals("none")) {
-
-                        distance = newDistance;
-                        tracking = onlinePlayer.getName();
-
-                        i++;
-
-                    }
-                }
+            if (onlinePlayer.equals(player)) {
+                continue;
             }
+            if (!onlinePlayer.getWorld().equals(player.getWorld())) {
+                continue;
+            }
+            int newDistance = (int) onlinePlayer.getLocation().distance(player.getLocation());
+
+            if (newDistance < distance || tracking.equals("none")) {
+
+                distance = newDistance;
+                tracking = onlinePlayer.getName();
+
+                i++;
+
+            }
+
         }
 
         if (i == 0) {
