@@ -5,13 +5,7 @@ import org.bukkit.boss.BarColor;
 
 public class ColorConfig {
 
-    private final PlayerTracker plugin;
-
-    public ColorConfig(PlayerTracker plugin) {
-        this.plugin = plugin;
-    }
-
-    public BarColor color() {
+    public static BarColor color(PlayerTracker plugin) {
 
         String color = String.valueOf(plugin.getConfig().get("color"));
 

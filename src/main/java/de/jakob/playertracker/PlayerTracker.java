@@ -24,10 +24,6 @@ public class PlayerTracker extends JavaPlugin {
 
     private final Map<UUID, BossBar> playerBar = new HashMap<UUID, BossBar>();
 
-    private final ColorConfig colorConfig = new ColorConfig(this);
-
-    private final TickConfig tickConfig = new TickConfig(this);
-
     @Override
     public void onEnable() {
 
@@ -48,16 +44,16 @@ public class PlayerTracker extends JavaPlugin {
 
                 for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
                     if (!isTracking.containsKey(onlinePlayer.getUniqueId())) {
-                   continue;
+                        continue;
                     }
-                        if (isTracking.get(onlinePlayer.getUniqueId())) {
+                    if (isTracking.get(onlinePlayer.getUniqueId())) {
 
-                            TrackUtil.doTrack(onlinePlayer, plugin);
+                        TrackUtil.doTrack(onlinePlayer, plugin);
 
-                        }
                     }
+                }
             }
-        }, 0, plugin.getTickConfig().updateTicks());
+        }, 0, TickConfig.updateTicks(plugin));
 
     }
 
@@ -67,14 +63,6 @@ public class PlayerTracker extends JavaPlugin {
 
     public Map<UUID, BossBar> getPlayerBar() {
         return playerBar;
-    }
-
-    public ColorConfig getColorConfig() {
-        return colorConfig;
-    }
-
-    public TickConfig getTickConfig() {
-        return tickConfig;
     }
 
 }

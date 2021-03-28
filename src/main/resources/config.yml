@@ -6,6 +6,6 @@
 color: purple
 
 
-#update-time
+#update time
 #in ticks (1sec = 20ticks)
 ticks: 10

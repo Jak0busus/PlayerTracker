@@ -4,15 +4,9 @@ import de.jakob.playertracker.PlayerTracker;
 
 public class TickConfig {
 
-    private final PlayerTracker plugin;
+    public static int updateTicks(PlayerTracker plugin) {
 
-    public TickConfig(PlayerTracker plugin) {
-        this.plugin = plugin;
-    }
-
-    public int updateTicks() {
-
-        return (int) plugin.getConfig().get("ticks");
+        return plugin.getConfig().getInt("ticks");
 
     }
 
