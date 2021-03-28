@@ -1,0 +1,11 @@
+#loadet
+#auto generated configuration file
+
+#bossbar color
+#possible colors: red, purple, green, yellow, white, pink, blue
+color: purple
+
+
+#update-time
+#in ticks (1sec = 20ticks)
+ticks: 10
