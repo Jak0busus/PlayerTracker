@@ -44,11 +44,12 @@ public class PlayerTracker extends JavaPlugin {
                     if (!isTracking.containsKey(onlinePlayer.getUniqueId())) {
                         continue;
                     }
-                    if (isTracking.get(onlinePlayer.getUniqueId())) {
-
-                        TrackUtil.doTrack(onlinePlayer, plugin);
-
+                    if (!isTracking.get(onlinePlayer.getUniqueId())) {
+                        continue;
                     }
+
+                    TrackUtil.doTrack(onlinePlayer, plugin);
+
                 }
             }
         }, 0, ConfigReader.updateTicks(plugin));

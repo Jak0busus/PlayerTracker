@@ -20,9 +20,11 @@ public class LeaveListener implements Listener {
 
         Player player = leaveEvent.getPlayer();
 
-        if (plugin.getPlayerBar().containsKey(player.getUniqueId())) {
-            BossBarUtil.deleteBossBar(player, plugin);
+        if (!plugin.getPlayerBar().containsKey(player.getUniqueId())) {
+            return;
         }
+
+        BossBarUtil.deleteBossBar(player, plugin);
 
         plugin.getIsTracking().remove(player.getUniqueId());
     }

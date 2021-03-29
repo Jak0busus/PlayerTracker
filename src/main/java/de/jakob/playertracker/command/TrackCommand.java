@@ -22,35 +22,34 @@ public class TrackCommand implements CommandExecutor {
 
             Player player = (Player) sender;
 
-            if (player.hasPermission("track.player")) {
-
-                if (args.length == 0) {
-
-                    if (!plugin.getIsTracking().containsKey(player.getUniqueId())) {
-                       plugin.getIsTracking().put(player.getUniqueId(), false);
-                    }
-
-                    if (plugin.getIsTracking().get(player.getUniqueId())) {
-
-                        plugin.getIsTracking().put(player.getUniqueId(), false);
-                        BossBarUtil.deleteBossBar(player, plugin);
-                        player.sendMessage("§7[§5Track§7] §eYou have deactivated the tracker.");
-
-                    } else if (!plugin.getIsTracking().get(player.getUniqueId())) {
-
-                        plugin.getIsTracking().put(player.getUniqueId(), true);
-                        BossBarUtil.createBossBar(player, plugin);
-                        TrackUtil.doTrack(player, plugin);
-                        player.sendMessage("§7[§5Track§7] §eYou have activated the tracker.");
-
-                    }
-
-                }
-            } else {
-
+            if (!player.hasPermission("track.player")) {
                 player.sendMessage("§7[§5Track§7] §cYou do not have the necessary permissions.");
+                return true;
+            }
+            if (args.length != 0) {
+                return true;
+            }
+
+            if (!plugin.getIsTracking().containsKey(player.getUniqueId())) {
+                plugin.getIsTracking().put(player.getUniqueId(), false);
+            }
+
+            if (plugin.getIsTracking().get(player.getUniqueId())) {
+
+                plugin.getIsTracking().put(player.getUniqueId(), false);
+                BossBarUtil.deleteBossBar(player, plugin);
+                player.sendMessage("§7[§5Track§7] §eYou have deactivated the tracker.");
+
+            } else if (!plugin.getIsTracking().get(player.getUniqueId())) {
+
+                plugin.getIsTracking().put(player.getUniqueId(), true);
+                BossBarUtil.createBossBar(player, plugin);
+                TrackUtil.doTrack(player, plugin);
+                player.sendMessage("§7[§5Track§7] §eYou have activated the tracker.");
 
             }
+
+
         }
 
         return true;
