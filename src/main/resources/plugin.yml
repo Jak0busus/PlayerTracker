@@ -7,3 +7,7 @@ commands:
   track:
     description: Enable or disable the tracking bossbar.
     usage: /track
+    permission: track.player
+permissions:
+  track.player:
+    description: Allows you to use the /track command
