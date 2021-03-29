@@ -1,10 +1,8 @@
 package de.jakob.playertracker;
 
-import de.jakob.playertracker.configuration.ColorConfig;
 import de.jakob.playertracker.listener.LeaveListener;
 import de.jakob.playertracker.command.TrackCommand;
-import de.jakob.playertracker.configuration.TickConfig;
-import de.jakob.playertracker.util.BossBarUtil;
+import de.jakob.playertracker.util.ConfigReader;
 import de.jakob.playertracker.util.TrackUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BossBar;
@@ -53,7 +51,7 @@ public class PlayerTracker extends JavaPlugin {
                     }
                 }
             }
-        }, 0, TickConfig.updateTicks(plugin));
+        }, 0, ConfigReader.updateTicks(plugin));
 
     }
 

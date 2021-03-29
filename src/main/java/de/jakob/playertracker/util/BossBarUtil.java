@@ -1,7 +1,6 @@
 package de.jakob.playertracker.util;
 
 import de.jakob.playertracker.PlayerTracker;
-import de.jakob.playertracker.configuration.ColorConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -30,7 +29,7 @@ public class BossBarUtil {
                         + " §7[§5"
                         + "0"
                         + "§7]",
-                ColorConfig.color(plugin),
+                ConfigReader.color(plugin),
                 BarStyle.SOLID);
 
         bar.addPlayer(player);
