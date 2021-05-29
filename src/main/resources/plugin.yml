@@ -1,13 +1,8 @@
 name: PlayerTracker
 author: Jakob
 main: de.jakob.playertracker.PlayerTracker
-api-version: 1.16
 version: 1.0
 commands:
   track:
-    description: Enable or disable the tracking bossbar.
-    usage: /track
-    permission: track.player
 permissions:
-  track.player:
-    description: Allows you to use the /track command
+  plyertracker.track:

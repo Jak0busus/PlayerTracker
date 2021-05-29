@@ -22,8 +22,8 @@ public class TrackCommand implements CommandExecutor {
 
             Player player = (Player) sender;
 
-            if (!player.hasPermission("track.player")) {
-                player.sendMessage("§7[§5Track§7] §cYou do not have the necessary permissions.");
+            if (!player.hasPermission("playertracker.track")) {
+                player.sendMessage("§8» §dSV §8× §7Dazu besitzt du leider §cnicht §7die passenden §eRechte§7!");
                 return true;
             }
             if (args.length != 0) {
@@ -38,14 +38,14 @@ public class TrackCommand implements CommandExecutor {
 
                 plugin.getIsTracking().put(player.getUniqueId(), false);
                 BossBarUtil.deleteBossBar(player, plugin);
-                player.sendMessage("§7[§5Track§7] §eYou have deactivated the tracker.");
+                player.sendMessage("§8» §dSV §8× §7Du hast den §5Tracker §cdeaktiviert§7.");
 
             } else if (!plugin.getIsTracking().get(player.getUniqueId())) {
 
                 plugin.getIsTracking().put(player.getUniqueId(), true);
                 BossBarUtil.createBossBar(player, plugin);
                 TrackUtil.doTrack(player, plugin);
-                player.sendMessage("§7[§5Track§7] §eYou have activated the tracker.");
+                player.sendMessage("§8» §dSV §8× §7Du hast den §5Tracker §aaktiviert§7.");
 
             }
 
